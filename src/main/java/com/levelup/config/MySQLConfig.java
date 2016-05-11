@@ -14,6 +14,7 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.support.TransactionTemplate;
+
 import javax.sql.DataSource;
 import java.util.Properties;
 
@@ -27,7 +28,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({ "com.levelup" })
+@ComponentScan({"com.levelup"})
 
 public class MySQLConfig {
     private static final Logger LOG = Logger.getLogger(MySQLConfig.class);
@@ -55,7 +56,7 @@ public class MySQLConfig {
         final LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
 //        sessionFactory.setMappingResources(new String[] {"com.levelup"});
-        sessionFactory.setPackagesToScan(new String[] {"com.levelup.model"});
+        sessionFactory.setPackagesToScan(new String[]{"com.levelup.model"});
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
     }
