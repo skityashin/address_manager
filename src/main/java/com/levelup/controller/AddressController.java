@@ -32,6 +32,11 @@ public class AddressController {
         private PhoneService phoneService;
 
 
+        @RequestMapping(value = "/add", method = RequestMethod.GET)
+        public String showMainPage() {
+            return "create";
+        }
+
         @RequestMapping(value = "/create", method = RequestMethod.POST)
         public String createAddress(@ModelAttribute AddressDto addressDto, @ModelAttribute PhoneDto phoneDto, Model model) {
 
@@ -52,32 +57,31 @@ public class AddressController {
             return "address";
         }
 
-        @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
-        @ResponseBody
-        public ResponseEntity deleteUser(@PathVariable long id) {
-            userService.deleteById(id);
-            return new ResponseEntity(HttpStatus.OK);
-        }
+//        @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+//        @ResponseBody
+//        public ResponseEntity deleteUser(@PathVariable long id) {
+//            userService.deleteById(id);
+//            return new ResponseEntity(HttpStatus.OK);
+//        }
+//
+//        @RequestMapping(value = "/find/{id}", method = RequestMethod.GET)
+//        @ResponseBody
+//        public ResponseEntity findUser(@PathVariable long id) {
+//            User user = userService.findById(id);
+//            if (user == null) {
+//                return new ResponseEntity(HttpStatus.NO_CONTENT);
+//            }
+//            return new ResponseEntity(user, HttpStatus.OK);
+//        }
+//
+//
+//        @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+//        public ResponseEntity getAllUsers() {
+//            List<User> users = userService.getAllUsers();
+//            if (CollectionUtils.isEmpty(users)) {
+//                return new ResponseEntity(HttpStatus.NO_CONTENT);
+//            }
+//            return new ResponseEntity(users, HttpStatus.OK);
+//        }
 
-        @RequestMapping(value = "/find/{id}", method = RequestMethod.GET)
-        @ResponseBody
-        public ResponseEntity findUser(@PathVariable long id) {
-            User user = userService.findById(id);
-            if (user == null) {
-                return new ResponseEntity(HttpStatus.NO_CONTENT);
-            }
-            return new ResponseEntity(user, HttpStatus.OK);
-        }
-
-
-        @RequestMapping(value = "/getAll", method = RequestMethod.GET)
-        public ResponseEntity getAllUsers() {
-            List<User> users = userService.getAllUsers();
-            if (CollectionUtils.isEmpty(users)) {
-                return new ResponseEntity(HttpStatus.NO_CONTENT);
-            }
-            return new ResponseEntity(users, HttpStatus.OK);
-        }
-
-
-    }
+}

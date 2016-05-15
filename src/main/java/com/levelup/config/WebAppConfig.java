@@ -31,7 +31,6 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
     }
 
     // а этот бин инициализирует View нашего проекта
-    // точно это же мы делали в web-dispatcher-servlet.xml
     @Bean
     public InternalResourceViewResolver setupViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();

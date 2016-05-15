@@ -4,7 +4,9 @@ import com.levelup.model.Phone;
 import com.levelup.repository.PhoneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateTemplate;
+import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -15,7 +17,10 @@ import java.util.List;
  * @since 15.05.16
  */
 
+@Repository
+@Transactional
 public class PhoneRepositoryImpl implements PhoneRepository {
+
     @Autowired
     private HibernateTemplate hibernateTemplate;
 

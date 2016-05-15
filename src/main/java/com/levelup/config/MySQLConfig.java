@@ -75,6 +75,7 @@ public class MySQLConfig {
         dataSource.setUrl("jdbc:mysql://localhost:3306/address_manager");
         dataSource.setUsername("root");
         dataSource.setPassword("");
+        dataSource.setPassword("skityashin");
         Properties properties = new Properties();
         properties.put("minPoolSize", "1");
         properties.put("maxPoolSize", "100");
