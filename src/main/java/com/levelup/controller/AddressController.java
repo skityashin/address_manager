@@ -1,0 +1,83 @@
+package com.levelup.controller;
+
+import com.levelup.dto.AddressDto;
+import com.levelup.dto.PhoneDto;
+import com.levelup.model.Address;
+import com.levelup.model.Phone;
+import com.levelup.service.AddressService;
+import com.levelup.service.PhoneService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+/**
+ * Class {@link com.levelup.controller.AddressController}
+ *
+ * @author Skityashin Vladimir
+ * @version 1.0
+ * @since 15.05.16
+ */
+
+@Controller
+@RequestMapping("/address")
+public class AddressController {
+
+        @Autowired
+        private AddressService addressService;
+
+        @Autowired
+        private PhoneService phoneService;
+
+
+        @RequestMapping(value = "/create", method = RequestMethod.POST)
+        public String createAddress(@ModelAttribute AddressDto addressDto, @ModelAttribute PhoneDto phoneDto, Model model) {
+
+            Address address = new Address();
+            address.setContent(addressDto.getContent());
+            address.setCountry(addressDto.getCountry());
+            addressService.createAddress(address);
+            Phone phone = new Phone();
+            phone.setNamber(phoneDto.getNamber());
+            phone.setAddress(address);
+
+            address.setPhones(addressDto.getPhones());
+            addressService.createAddress(address);
+            
+            model.addAttribute("content", address.getContent());
+            model.addAttribute("country", address.getCountry());
+            model.addAttribute("phones", address.getPhones());
+            return "address";
+        }
+
+        @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+        @ResponseBody
+        public ResponseEntity deleteUser(@PathVariable long id) {
+            userService.deleteById(id);
+            return new ResponseEntity(HttpStatus.OK);
+        }
+
+        @RequestMapping(value = "/find/{id}", method = RequestMethod.GET)
+        @ResponseBody
+        public ResponseEntity findUser(@PathVariable long id) {
+            User user = userService.findById(id);
+            if (user == null) {
+                return new ResponseEntity(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity(user, HttpStatus.OK);
+        }
+
+
+        @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+        public ResponseEntity getAllUsers() {
+            List<User> users = userService.getAllUsers();
+            if (CollectionUtils.isEmpty(users)) {
+                return new ResponseEntity(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity(users, HttpStatus.OK);
+        }
+
+
+    }
