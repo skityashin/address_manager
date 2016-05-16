@@ -38,7 +38,7 @@ public class PhoneRepositoryImpl implements PhoneRepository {
 
     @Override
     public List<Phone> getAllPhone() {
-        return (List<Phone>) hibernateTemplate.find("select * FROM Phone");
+        return (List<Phone>) hibernateTemplate.find("FROM Phone");
     }
 
     @Override

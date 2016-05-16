@@ -7,6 +7,10 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -29,7 +33,7 @@ public class AddressRepositoryImpl implements AddressRepository{
 //        if(address == null) {
 //            throw new IllegalArgumentException("Address cannot be null");
 //        }
-        hibernateTemplate.save(address);
+        hibernateTemplate.saveOrUpdate(address);
     }
 
 
@@ -54,5 +58,12 @@ public class AddressRepositoryImpl implements AddressRepository{
     @Override
     public boolean isAddressExist(long id_address) {
         return hibernateTemplate.contains(id_address);
+    }
+
+    @Override
+    public Address getAddressByContent(String content) {
+        ArrayList<Address> list = new ArrayList<Address>((Collection<? extends Address>) Arrays.asList(
+                hibernateTemplate.find("FROM Address a WHERE a.content = ?", content)));
+        return list.get(0);
     }
 }

@@ -25,7 +25,7 @@ public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_address")
+    @Column(name = "id_address", unique = true)
     public long getId_address() {
         return id_address;
     }

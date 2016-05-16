@@ -18,4 +18,5 @@ public interface AddressRepository {
     List<Address> getAllAddress ();
     void deleteById (long id_address);
     boolean isAddressExist(long id_address);
+    Address getAddressByContent(String content);
 }
