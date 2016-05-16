@@ -26,9 +26,10 @@ public class AddressRepositoryImpl implements AddressRepository{
 
     @Override
     public void createAddress(Address address) {
-        if(address == null) {
-            throw new IllegalArgumentException("Address cannot be null");
-        } hibernateTemplate.saveOrUpdate(address);
+//        if(address == null) {
+//            throw new IllegalArgumentException("Address cannot be null");
+//        }
+        hibernateTemplate.save(address);
     }
 
 

@@ -52,7 +52,7 @@ public class Address {
         this.content = content;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "address")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "address", cascade = CascadeType.ALL, targetEntity = Phone.class)
     public List<Phone> getPhones() {
         return phones;
     }

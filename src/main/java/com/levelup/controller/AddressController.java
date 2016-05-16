@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Class {@link com.levelup.controller.AddressController}
  *
@@ -34,27 +37,35 @@ public class AddressController {
 
         @RequestMapping(value = "/add", method = RequestMethod.GET)
         public String showMainPage() {
+            return "inex";
+        }
+
+        @RequestMapping(method = RequestMethod.GET, value = "/create")
+        public String showForm() {
             return "create";
         }
 
         @RequestMapping(value = "/create", method = RequestMethod.POST)
-        public String createAddress(@ModelAttribute AddressDto addressDto, @ModelAttribute PhoneDto phoneDto, Model model) {
+        public String createAddress(@ModelAttribute AddressDto addressDto, Model model) {
 
             Address address = new Address();
             address.setContent(addressDto.getContent());
             address.setCountry(addressDto.getCountry());
             addressService.createAddress(address);
             Phone phone = new Phone();
-            phone.setNamber(phoneDto.getNamber());
+//            phone.setNamber(phoneDto.getNamber());
+            phone.setNamber(addressDto.getPhone());
             phone.setAddress(address);
+            phoneService.createPhone(phone);
+            List<Phone> list = new ArrayList<Phone>();
 
-            address.setPhones(addressDto.getPhones());
+            address.setPhones(list);
             addressService.createAddress(address);
-            
+
             model.addAttribute("content", address.getContent());
             model.addAttribute("country", address.getCountry());
             model.addAttribute("phones", address.getPhones());
-            return "address";
+            return "index";
         }
 
 //        @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)

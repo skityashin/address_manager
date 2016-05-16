@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<link rel="stylesheet" type="text/css" href="/resources/css/main.css">
 
 
 <div>
@@ -17,8 +17,8 @@
                 <td  align="center" ><input type="text" value="" name="content"></td>
             </tr>
             <tr>
-                <td  align="center" >phones:</td>
-                <td  align="center" ><input type="text" value="" name="phones"></td>
+                <td  align="center" >phone:</td>
+                <td  align="center" ><input type="text" value="" name="phone"></td>
             </tr>
             <tr>
                 <td  align="center" >country:</td>
