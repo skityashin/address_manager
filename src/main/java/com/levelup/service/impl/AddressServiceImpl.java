@@ -5,6 +5,7 @@ import com.levelup.repository.AddressRepository;
 import com.levelup.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ import java.util.List;
  */
 
 @Service
+//@Transactional
 public class AddressServiceImpl implements AddressService{
 
     @Autowired
@@ -33,6 +35,11 @@ public class AddressServiceImpl implements AddressService{
     @Override
     public Address findById(long id_address) {
         return addressRepository.findById(id_address);
+    }
+
+    @Override
+    public Address findByContent(String content) {
+        return addressRepository.findByContent(content);
     }
 
     @Override

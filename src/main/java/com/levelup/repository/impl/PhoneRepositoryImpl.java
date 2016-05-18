@@ -31,9 +31,10 @@ public class PhoneRepositoryImpl implements PhoneRepository {
         } hibernateTemplate.saveOrUpdate(phone);
     }
 
+
     @Override
     public Phone findById(long id_phone) {
-        return hibernateTemplate.get(Phone.class, id_phone);
+        return hibernateTemplate.load(Phone.class, id_phone);
     }
 
     @Override

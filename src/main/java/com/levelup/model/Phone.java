@@ -1,6 +1,7 @@
 package com.levelup.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Class {@link com.levelup.model.Phone}
@@ -13,7 +14,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "phone")
 @NamedQuery(name = "Phone.findAll", query = "SELECT p FROM Phone p")
-public class Phone {
+public class Phone implements Serializable {
 
     private long id_phone;
     private String namber;

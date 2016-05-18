@@ -5,7 +5,9 @@ import com.levelup.repository.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.CollectionUtils;
 
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -44,6 +46,15 @@ public class AddressRepositoryImpl implements AddressRepository{
 
 
     @Override
+    public Address findByContent(String content) {
+        List<Address> addresses  = (List<Address>) hibernateTemplate.find("select a FROM Address a WHERE a.content = ?", content);
+        if (!CollectionUtils.isEmpty(addresses)) {
+            return addresses.get(0);
+        }
+        return null;
+    }
+
+    @Override
     public List<Address> getAllAddress() {
         return (List<Address>) hibernateTemplate.find("select * FROM Address");
     }
@@ -60,10 +71,10 @@ public class AddressRepositoryImpl implements AddressRepository{
         return hibernateTemplate.contains(id_address);
     }
 
-    @Override
-    public Address getAddressByContent(String content) {
-        ArrayList<Address> list = new ArrayList<Address>((Collection<? extends Address>) Arrays.asList(
-                hibernateTemplate.find("FROM Address a WHERE a.content = ?", content)));
-        return list.get(0);
-    }
+//    @Override
+//    public Address getAddressByContent(String content) {
+//        ArrayList<Address> list = new ArrayList<Address>((Collection<? extends Address>) Arrays.asList(
+//                hibernateTemplate.find("FROM Address a WHERE a.content = ?", content)));
+//        return list.get(0);
+//    }
 }

@@ -47,30 +47,47 @@ public class AddressController {
 
         @RequestMapping(value = "/create", method = RequestMethod.POST)
         public String createAddress(@ModelAttribute AddressDto addressDto, Model model) {
+            Address address = addressService.findByContent(addressDto.getContent());
 
-            Address address; //= new Address();
+            if (address == null) {
+                address = new Address();
+                address.setContent(addressDto.getContent());
+                address.setCountry(addressDto.getCountry());
+                addressService.createAddress(address);
+            }
 
-
-            address.setContent(addressDto.getContent());
-            address.setCountry(addressDto.getCountry());
-            addressService.createAddress(address);
             Phone phone = new Phone();
-//            phone.setNamber(phoneDto.getNamber());
             phone.setNamber(addressDto.getPhone());
-            phone.setAddress(address);
-            phoneService.createPhone(phone);
-            List<Phone> list = new ArrayList<Phone>();
-/*alexey's code starts*/
-            list.add(phone);
-/*alexey's code end's*/
-            address.setPhones(list);
-            addressService.createAddress(address);
+//            проверка наличия телефона на адресе
+            List<Phone> phonesList = address.getPhones();
+            boolean exist = false;
+            if (phonesList != null){
+                for (Phone e: phonesList) {
+                    if (e.getNamber().equals(phone.getNamber())) {
+                        exist = true;
+                        break;
+                    }
+                }
+            } else{
+                phonesList = new ArrayList<Phone>();
+            }
+
+            if (!exist) { // если телефон новій для адреса
+                phone.setAddress(address);
+                phoneService.createPhone(phone);
+                phonesList.add(phone); // не нужно, запишется с адресом
+                addressService.createAddress(address); //повторная запись в базу
+            }
+
+//            List<Phone> list = new ArrayList<Phone>();
+//            address.setPhones(phones); // требует проверки (вдруг не засетит)
 
 //            List<Phone> phones = phoneService.getAllPhone();
-            List<Phone> phones = address.getPhones();
+//            List<Phone> phones = address.getPhones();
+            phonesList = address.getPhones();
             model.addAttribute("content", address.getContent());
             model.addAttribute("country", address.getCountry());
-            model.addAttribute("phones", phones);
+            model.addAttribute("phones", phonesList);
             return "view";
         }
 
