@@ -11,7 +11,7 @@
 
 <div>
     <form action="/address/create" method="post" id="add-address">
-        <table border="1px" style="color: black">
+        <table class="table1" style=" margin: auto;  background: #fffacd;" border="1px" style="color: black">
             <tr>
                 <td  align="center" >content:</td>
                 <td  align="center" ><input type="text" value="" name="content"></td>
@@ -33,7 +33,7 @@
                 </td>
             </tr>
             <tr >
-                <td rowspan="4" align="center" > <input type="submit"></td>
+                <td rowspan="4" align="center" > <input class='great_btn' type="submit"></td>
             </tr>
         </table>
     </form>

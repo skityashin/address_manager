@@ -7,26 +7,35 @@
 <%@ page session="false" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<link rel="stylesheet" type="text/css" href="/resources/css/main.css">
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script language="javascript" type="text/javascript" src="/resources/js/view.js"></script>
 
-<table id="ttt" border="1px" style="color: black">
+<table  style=" margin: auto;" id="ttt" border="1px" style="color: black">
     <tr>
-        <td  align="center" >content: ${content}</td>
+        <td class="col1" align="center" >content: </td>
+        <td  align="center" >${content}</td>
     </tr>
     <tr>
-        <td  align="center" >country:${country}</td>
+        <td class="col1" align="center" >country: </td>
+        <td  align="center" >${country}</td>
     </tr>
     <tr>
         <c:forEach var="phones" items="${phones}">
-            <table border="1px" style="color: black" >
+            <table style=" margin: auto;" id="ttt1" border="1px" style="color: black" >
                 <tr>
-                    <td  align="center" >phones: ${phones}</td>
+                    <td class="col1" align="center" >phones: </td>
+                    <td  align="center" > ${phones}</td>
                 </tr>
-                <br>
             </table>
         </c:forEach>
     </tr>
-
-    <br>
 </table>
+<div id='txt' >
+    <a href='/'>
+        <p style="text-align: center"><button class='great_btn'>Back</button> </p>
+    </a>
+</div>
+<div id='box' ></div>
 
 

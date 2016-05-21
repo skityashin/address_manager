@@ -4,7 +4,7 @@
     font-size: 16px;
     text-shadow: 0 1px 0 #757575;
     padding: 4px 0 5px 0;
-    margin: 0;
+    margin: 10px;
     cursor: pointer;
     border: 0;
     border-top: 1px solid #87c286;
@@ -13,5 +13,45 @@
     border-bottom: 1px solid #0e780c;
     box-shadow: 0 -1px 0 #0e780c, 0 1px 0 #fff;
     width: 150px;
-    border-radius: 2px;
+    border-radius: 10px;
+}
+#ttt{
+    width: 20%;
+    white-space: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-size: medium;
+    font-variant: normal;
+    font-style: normal;
+    color: -internal-quirk-inherit;
+    text-align: start;
+    background: #fffacd;
+}
+#ttt1{
+    width: 20%;
+    white-space: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-size: medium;
+    font-variant: normal;
+    font-style: normal;
+    color: -internal-quirk-inherit;
+    text-align: start;
+    background: #ffaa71;
+}
+
+.col1 {
+    width: 100px; /* Ширина ячейки */
+}
+
+#txt {
+
+}
+#box {
+    text-align: center;
+    margin: auto;
+    width: 125px;
+    height: 75px;
+    background-image: url('/resources/img/btn.gif');
+    display: none;
 }

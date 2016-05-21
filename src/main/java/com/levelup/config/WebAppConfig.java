@@ -28,6 +28,9 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/WEB-INF/pages/**").addResourceLocations("/WEB-INF/pages/");
+        registry.addResourceHandler("/resources/css/**").addResourceLocations("/resources/css/");
+        registry.addResourceHandler("/resources/img/**").addResourceLocations("/resources/img/");
+        registry.addResourceHandler("/resources/js/**").addResourceLocations("/resources/js/");
     }
 
     // а этот бин инициализирует View нашего проекта
