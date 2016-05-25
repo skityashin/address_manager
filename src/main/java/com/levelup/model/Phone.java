@@ -25,7 +25,7 @@ public class Phone implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_phone")
+    @Column(name = "id_phone", unique = true)
     public long getId_phone() {
         return id_phone;
     }
@@ -34,7 +34,7 @@ public class Phone implements Serializable {
         this.id_phone = id_phone;
     }
 
-    @Column(name = "namber")
+    @Column(name = "namber", unique = true)
     public String getNamber() {
         return namber;
     }

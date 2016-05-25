@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -58,38 +59,61 @@ public class AddressController {
 
             Phone phone = new Phone();
             phone.setNamber(addressDto.getPhone());
-//            проверка наличия телефона на адресе
+            phone.setAddress(address);
+
+            try {
+                phoneService.createPhone(phone);
+            } catch (Exception e) {
+//                e.printStackTrace();
+                return "error";
+            }
+
             List<Phone> phonesList = address.getPhones();
             boolean exist = false;
-            if (phonesList != null){
-                for (Phone e: phonesList) {
-                    if (e.getNamber().equals(phone.getNamber())) {
+            if(phonesList != null){
+                Iterator<Phone> iterator = phonesList.iterator();
+                while (iterator.hasNext()){
+                    Phone next = iterator.next();
+                    if(next.getNamber().equals(phone.getNamber())){
                         exist = true;
                         break;
                     }
                 }
-            } else{
+            }else {
                 phonesList = new ArrayList<Phone>();
+                phonesList.add(phone);
+                address.setPhones(phonesList);
+                exist = true;
+            }
+            if (!exist) {
+                phonesList.add(phone);
+                addressService.createAddress(address);
             }
 
-            if (!exist) { // если телефон новій для адреса
-                phone.setAddress(address);
-                phoneService.createPhone(phone);
-                phonesList.add(phone); // не нужно, запишется с адресом
-                addressService.createAddress(address); //повторная запись в базу
-            }
 
-//            List<Phone> list = new ArrayList<Phone>();
-//            address.setPhones(phones); // требует проверки (вдруг не засетит)
-
-//            List<Phone> phones = phoneService.getAllPhone();
-//            List<Phone> phones = address.getPhones();
-            phonesList = address.getPhones();
             model.addAttribute("content", address.getContent());
             model.addAttribute("country", address.getCountry());
-            model.addAttribute("phones", phonesList);
+            model.addAttribute("phones", address.getPhones());
             return "view";
         }
+
+        @RequestMapping(value = "/deleteAddress", method = RequestMethod.POST)
+        public String deleteAddress(@ModelAttribute AddressDto addressDto, Model model) {
+            Address address = null;
+            try {
+                address = addressService.findByContent(addressDto.getContent());
+            } catch (Exception e) {
+                model.addAttribute("content", addressDto.getContent());
+                model.addAttribute("content", addressDto.getContent());
+                return "deleted";
+            }
+            addressService.deleteById(address.getId_address());
+            model.addAttribute("content", address.getContent());
+            model.addAttribute("content", address.getContent());
+            return "deleted";
+        }
+
+
 
 //        @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
 //        @ResponseBody

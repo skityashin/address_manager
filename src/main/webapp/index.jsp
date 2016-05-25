@@ -10,15 +10,28 @@
     <p style="text-align: center"><button class='great_btn'>Create</button> </p>
 </a>
 
+
+    <form action="/address/deleteAddress" method="post" id="add-address">
+        <p style="text-align: center"><input style="width: 150px" placeholder="Address" name="content">
+       <button class='great_btn'>Delete Address</button> </p>
+    </form>
+
+
+<%--<a href='/address/deletePhone'>--%>
+    <form>
+        <p style="text-align: center"><input style="width: 150px" placeholder="Phone" name="phone">
+            <button class='great_btn'>Delete Phone</button> </p>
+    </form>
+
+
 <form>
-    <p style="text-align: center"><input style="width: 40px" placeholder="id" name="address">
-   <button class='great_btn'>Delete</button> </p>
+    <p style="text-align: center"><input style="width: 150px" placeholder="Address" name="content">
+   <button class='great_btn'>Search Address</button></p>
 </form>
 
-
 <form>
-    <p style="text-align: center"><input style="width: 40px" placeholder="id" name="address">
-   <button class='great_btn'>Search</button></p>
+    <p style="text-align: center"><input style="width: 150px" placeholder="Phone" name="phone">
+        <button class='great_btn'>Search Phone</button></p>
 </form>
 
 <marquee direction="right"><img src="/resources/img/dog.gif"></marquee>

@@ -28,7 +28,8 @@ public class PhoneRepositoryImpl implements PhoneRepository {
     public void createPhone(Phone phone) {
         if(phone == null) {
             throw new IllegalArgumentException("Phone cannot be null");
-        } hibernateTemplate.saveOrUpdate(phone);
+        }
+        hibernateTemplate.saveOrUpdate(phone);
     }
 
 
