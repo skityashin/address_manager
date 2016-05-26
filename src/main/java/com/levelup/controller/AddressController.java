@@ -102,26 +102,32 @@ public class AddressController {
             Address address = null;
             try {
                 address = addressService.findByContent(addressDto.getContent());
+                addressService.deleteById(address.getId_address());
             } catch (Exception e) {
-                model.addAttribute("content", addressDto.getContent());
-                model.addAttribute("content", addressDto.getContent());
+                model.addAttribute("content", "\"" + addressDto.getContent() + "\"" + " not found!!!");
                 return "deleted";
             }
-            addressService.deleteById(address.getId_address());
-            model.addAttribute("content", address.getContent());
-            model.addAttribute("content", address.getContent());
+            model.addAttribute("content", "\"" + address.getContent() + "\"" + " is deleted!!!");
             return "deleted";
         }
 
 
 
-//        @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
-//        @ResponseBody
-//        public ResponseEntity deleteUser(@PathVariable long id) {
-//            userService.deleteById(id);
-//            return new ResponseEntity(HttpStatus.OK);
-//        }
+//        @RequestMapping(value = "//deletePhone", method = RequestMethod.POST)
+//        public String deletePhone(@ModelAttribute PhoneDto phoneDto, Model model) {
+//            Phone phone = null;
+//            try {
+//                phone = phoneService.
 //
+//                addressService.deleteById(address.getId_address());
+//            } catch (Exception e) {
+//                model.addAttribute("content", "\"" + addressDto.getContent() + "\"" + " not found!!!");
+//                return "deleted";
+//            }
+//            model.addAttribute("content", "\"" + address.getContent() + "\"" + " is deleted!!!");
+//            return "deleted";
+//        }
+
 //        @RequestMapping(value = "/find/{id}", method = RequestMethod.GET)
 //        @ResponseBody
 //        public ResponseEntity findUser(@PathVariable long id) {

@@ -11,14 +11,13 @@
 </a>
 
 
-    <form action="/address/deleteAddress" method="post" id="add-address">
+    <form action="/address/deleteAddress" method="post" id="del-address">
         <p style="text-align: center"><input style="width: 150px" placeholder="Address" name="content">
        <button class='great_btn'>Delete Address</button> </p>
     </form>
 
 
-<%--<a href='/address/deletePhone'>--%>
-    <form>
+    <form action="/address/deletePhone" method="post" id="del-phone">
         <p style="text-align: center"><input style="width: 150px" placeholder="Phone" name="phone">
             <button class='great_btn'>Delete Phone</button> </p>
     </form>
