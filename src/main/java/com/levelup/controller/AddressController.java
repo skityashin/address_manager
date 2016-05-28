@@ -104,10 +104,10 @@ public class AddressController {
                 address = addressService.findByContent(addressDto.getContent());
                 addressService.deleteById(address.getId_address());
             } catch (Exception e) {
-                model.addAttribute("content", "\"" + addressDto.getContent() + "\"" + " not found!!!");
+                model.addAttribute("content", "\"" + addressDto.getContent() + "\"" +  " <font color=\"#FF0000\">not found!!!</font>");
                 return "deleted";
             }
-            model.addAttribute("content", "\"" + address.getContent() + "\"" + " is deleted!!!");
+            model.addAttribute("content", "\"" + address.getContent() + "\"" + "  <font color=\"#01DF01\">is deleted!!!</font>");
             return "deleted";
         }
 
