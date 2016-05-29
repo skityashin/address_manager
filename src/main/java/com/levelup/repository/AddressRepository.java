@@ -1,6 +1,7 @@
 package com.levelup.repository;
 
 import com.levelup.model.Address;
+
 import java.util.List;
 
 /**
@@ -12,13 +13,18 @@ import java.util.List;
  */
 
 public interface AddressRepository {
-    void createAddress (Address address);
-//    void updateAddress (Address address);
-    Address findById (long id_address);
-    Address findByContent (String content);
-    List<Address> findByContentPartial (String content);
-    List<Address> getAllAddress ();
-    void deleteById (long id_address);
+
+    void createAddress(Address address);
+
+    Address findById(long id_address);
+
+    Address findByContent(String content);
+
+    List<Address> findByContentPartial(String content);
+
+    List<Address> getAllAddress();
+
+    void deleteById(long id_address);
+
     boolean isAddressExist(long id_address);
-//    Address getAddressByContent(String content);
 }

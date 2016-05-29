@@ -22,7 +22,6 @@ public class AddressDto {
     private Countries country;
     private String content;
     private String phone;
-//    private List<Phone> phones;
 
     public AddressDto() {
     }
@@ -50,12 +49,4 @@ public class AddressDto {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
-    //    public List<Phone> getPhones() {
-//        return phones;
-//    }
-//
-//    public void setPhones(List<Phone> phones) {
-//        this.phones = phones;
-//    }
 }

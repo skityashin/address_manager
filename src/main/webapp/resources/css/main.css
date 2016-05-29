@@ -1,5 +1,5 @@
 .great_btn {
-    background: linear-gradient(to bottom, #0bc408 0%,#09a206 100%);
+    background: linear-gradient(to bottom, #0bc408 0%, #09a206 100%);
     color: #fff;
     font-size: 16px;
     text-shadow: 0 1px 0 #757575;
@@ -15,7 +15,8 @@
     width: 150px;
     border-radius: 10px;
 }
-#ttt{
+
+#ttt {
     width: 20%;
     white-space: normal;
     line-height: normal;
@@ -27,7 +28,8 @@
     text-align: start;
     background: #fffacd;
 }
-#ttt1{
+
+#ttt1 {
     width: 20%;
     white-space: normal;
     line-height: normal;
@@ -47,6 +49,7 @@
 #txt {
 
 }
+
 #box {
     text-align: center;
     margin: auto;

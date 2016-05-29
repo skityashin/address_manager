@@ -17,7 +17,7 @@ import java.io.Serializable;
 public class Phone implements Serializable {
 
     private long id_phone;
-    private String namber;
+    private String number;
     private Address address;
 
     public Phone() {
@@ -34,13 +34,13 @@ public class Phone implements Serializable {
         this.id_phone = id_phone;
     }
 
-    @Column(name = "namber", unique = true)
-    public String getNamber() {
-        return namber;
+    @Column(name = "number", unique = true)
+    public String getNumber() {
+        return number;
     }
 
-    public void setNamber(String namber) {
-        this.namber = namber;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -55,6 +55,6 @@ public class Phone implements Serializable {
 
     @Override
     public String toString() {
-        return namber;
+        return number;
     }
 }

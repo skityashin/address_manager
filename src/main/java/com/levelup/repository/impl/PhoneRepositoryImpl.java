@@ -1,6 +1,5 @@
 package com.levelup.repository.impl;
 
-import com.levelup.model.Address;
 import com.levelup.model.Phone;
 import com.levelup.repository.PhoneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,12 +27,11 @@ public class PhoneRepositoryImpl implements PhoneRepository {
 
     @Override
     public void createPhone(Phone phone) {
-        if(phone == null) {
+        if (phone == null) {
             throw new IllegalArgumentException("Phone cannot be null");
         }
         hibernateTemplate.saveOrUpdate(phone);
     }
-
 
     @Override
     public Phone findById(long id_phone) {
@@ -41,8 +39,8 @@ public class PhoneRepositoryImpl implements PhoneRepository {
     }
 
     @Override
-    public Phone findByNamber(String namber) {
-        List<Phone> phones  = (List<Phone>) hibernateTemplate.find("select p FROM Phone p WHERE p.namber = ?", namber);
+    public Phone findByNumber(String number) {
+        List<Phone> phones = (List<Phone>) hibernateTemplate.find("select p FROM Phone p WHERE p.number = ?", number);
         if (!CollectionUtils.isEmpty(phones)) {
             return phones.get(0);
         }
@@ -50,10 +48,10 @@ public class PhoneRepositoryImpl implements PhoneRepository {
     }
 
     @Override
-    public  List<Phone> findByNamberPartial(String namber) {
-        String query = "from Phone p where p.namber like :namber";
-        List<Phone> phones = (List<Phone>) hibernateTemplate.findByNamedParam(query, "namber", "%" + namber + "%");
-        for (Phone p: phones){
+    public List<Phone> findByNumberPartial(String number) {
+        String query = "from Phone p where p.number like :number";
+        List<Phone> phones = (List<Phone>) hibernateTemplate.findByNamedParam(query, "number", "%" + number + "%");
+        for (Phone p : phones) {
             hibernateTemplate.initialize(p.getAddress());
         }
         return phones;

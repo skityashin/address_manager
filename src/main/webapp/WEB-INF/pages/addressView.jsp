@@ -13,21 +13,21 @@
 
 
 <c:forEach var="address" items="${address}">
-    <table  style=" margin: auto;" id="ttt" border="1px" style="color: black">
+    <table style=" margin: auto;" id="ttt" border="1px" style="color: black">
         <tr>
-            <td class="col1" align="center" >content: </td>
-            <td  align="center" >${address.content}</td>
+            <td class="col1" align="center">content:</td>
+            <td align="center">${address.content}</td>
         </tr>
         <tr>
-            <td class="col1" align="center" >country: </td>
-            <td  align="center" >${address.country}</td>
+            <td class="col1" align="center">country:</td>
+            <td align="center">${address.country}</td>
         </tr>
         <tr>
             <c:forEach var="phone" items="${address.phones}">
-                <table style=" margin: auto;" id="ttt1" border="1px" style="color: black" >
+                <table style=" margin: auto;" id="ttt1" border="1px" style="color: black">
                     <tr>
-                        <td class="col1" align="center" >phones: </td>
-                        <td  align="center" > ${phone}</td>
+                        <td class="col1" align="center">phones:</td>
+                        <td align="center"> ${phone}</td>
                     </tr>
                 </table>
             </c:forEach>
@@ -35,11 +35,13 @@
         <br>
     </table>
 </c:forEach>
-<div id='txt' >
+<div id='txt'>
     <a href='/'>
-        <p style="text-align: center"><button class='great_btn'>Back</button> </p>
+        <p style="text-align: center">
+            <button class='great_btn'>Back</button>
+        </p>
     </a>
 </div>
-<div id='box' ></div>
+<div id='box'></div>
 
 

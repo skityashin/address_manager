@@ -13,11 +13,9 @@
 
 
 <div>
-
     <h3 style="text-align: center">Not unique PHONE</h3>
-
-    <%--<a href='/address/create/'>--%>
-        <p style="text-align: center"><button class='great_btn' onclick="history.go(-1);return true;">Back</button> </p>
-    <%--</a>--%>
+    <p style="text-align: center">
+        <button class='great_btn' onclick="history.go(-1);return true;">Back</button>
+    </p>
 </div>
 

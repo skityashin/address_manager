@@ -5,7 +5,6 @@ import com.levelup.repository.PhoneRepository;
 import com.levelup.service.PhoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 /**
@@ -17,14 +16,14 @@ import java.util.List;
  */
 
 @Service
-public class PhoneServiceImpl implements PhoneService{
+public class PhoneServiceImpl implements PhoneService {
 
     @Autowired
     private PhoneRepository phoneRepository;
 
     @Override
     public void createPhone(Phone phone) {
-        if(phone == null) {
+        if (phone == null) {
             throw new IllegalArgumentException("phone cannot be null");
         }
         phoneRepository.createPhone(phone);
@@ -36,13 +35,13 @@ public class PhoneServiceImpl implements PhoneService{
     }
 
     @Override
-    public Phone findByNamber(String namber) {
-        return phoneRepository.findByNamber(namber);
+    public Phone findByNumber(String number) {
+        return phoneRepository.findByNumber(number);
     }
 
     @Override
-    public List<Phone> findByNamberPartial(String namber) {
-        return phoneRepository.findByNamberPartial(namber);
+    public List<Phone> findByNumberPartial(String number) {
+        return phoneRepository.findByNumberPartial(number);
     }
 
     @Override

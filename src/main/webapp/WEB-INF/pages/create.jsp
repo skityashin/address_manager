@@ -13,16 +13,16 @@
     <form action="/address/create" method="post" id="add-address">
         <table class="table1" style=" margin: auto;  background: #fffacd;" border="1px" style="color: black">
             <tr>
-                <td  align="center" >content:</td>
-                <td  align="center" ><input type="text" value="" name="content"></td>
+                <td align="center">content:</td>
+                <td align="center"><input type="text" value="" name="content"></td>
             </tr>
             <tr>
-                <td  align="center" >phone:</td>
-                <td  align="center" ><input type="text" value="" name="phone"></td>
+                <td align="center">phone:</td>
+                <td align="center"><input type="text" value="" name="phone"></td>
             </tr>
             <tr>
-                <td  align="center" >country:</td>
-                <td  align="center" >
+                <td align="center">country:</td>
+                <td align="center">
                     <select name="country">
                         <option selected value="UKRAINE">UKRAINE</option>
                         <option value="GERMANY">GERMANY</option>
@@ -32,8 +32,8 @@
                     </select>
                 </td>
             </tr>
-            <tr >
-                <td rowspan="4" align="center" > <input class='great_btn' type="submit"></td>
+            <tr>
+                <td rowspan="4" align="center"><input class='great_btn' type="submit"></td>
             </tr>
         </table>
     </form>

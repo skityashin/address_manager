@@ -4,7 +4,7 @@
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 
-   <!-- Templates -->
+    <!-- Templates -->
 
     <definition name="layout.basic" template="/WEB-INF/pages/basic.jsp">
         <put-attribute name="title" value="Spring Web MVC with Tiles 3"/>
@@ -22,7 +22,6 @@
     <definition name="view" extends="layout.basic">
         <put-attribute name="body" value="/WEB-INF/pages/view.jsp"/>
     </definition>
-
 
 
 </tiles-definitions>

@@ -1,7 +1,5 @@
 package com.levelup.model;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -17,7 +15,8 @@ import java.util.List;
 @Entity
 @Table(name = "address")
 @NamedQuery(name = "Address.findAll", query = "SELECT a FROM Address a")
-public class Address implements Serializable{
+public class Address implements Serializable {
+
     private long id_address;
     private Countries country;
     private String content;
@@ -55,7 +54,6 @@ public class Address implements Serializable{
         this.content = content;
     }
 
-//    @Transactional
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "address", cascade = CascadeType.ALL, targetEntity = Phone.class)
     public List<Phone> getPhones() {
         return phones;

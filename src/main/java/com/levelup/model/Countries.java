@@ -74,7 +74,7 @@ public enum Countries {
 //        CYPRUS("Cyprus", "CY", "CYP", "196"),
 //        CZECH_REPUBLIC("Czech Republic", "CZ", "CZE", "203"),
 //        DENMARK("Denmark", "DK", "DNK", "208"),
-    //        DJIBOUTI("Djibouti", "DJ", "DJI", "262"),
+//        DJIBOUTI("Djibouti", "DJ", "DJI", "262"),
 //        DOMINICA("Dominica", "DM", "DMA", "212"),
 //        DOMINICAN_REPUBLIC("Dominican Republic", "DO", "DOM", "214"),
 //        EAST_TIMOR("East Timor", "TP", "TMP", "626"),
@@ -122,7 +122,7 @@ public enum Countries {
 //        IRELAND("Ireland", "IE", "IRL", "372"),
 //        ITALY("Italy", "IT", "ITA", "380"),
 //        JAMAICA("Jamaica", "JM", "JAM", "388"),
-    //        JAPAN("Japan", "JP", "JPN", "392"),
+//        JAPAN("Japan", "JP", "JPN", "392"),
 //        JORDAN("Jordan", "JO", "JOR", "400"),
 //        KAZAKHSTAN("Kazakhstan", "KZ", "KAZ", "398"),
 //        KENYA("Kenya", "KE", "KEN", "404"),
@@ -162,7 +162,7 @@ public enum Countries {
 //        MOROCCO("Morocco", "MA", "MAR", "504"),
 //        MOZAMBIQUE("Mozambique", "MZ", "MOZ", "508"),
 //        MYANMAR("Myanmar", "MM", "MMR", "104"),
-    //        NAMIBIA("Namibia", "NA", "NAM", "516"),
+//        NAMIBIA("Namibia", "NA", "NAM", "516"),
 //        NAURU("Nauru", "NR", "NRU", "520"),
 //        NEPAL("Nepal", "NP", "NPL", "524"),
 //        NETHERLANDS("Netherlands", "NL", "NLD", "528"),
@@ -196,7 +196,7 @@ public enum Countries {
 //        SAINT_KITTS_AND_NEVIS("Saint Kitts and Nevis", "KN", "KNA", "659"),
 //        SAINT_LUCIA("Saint Lucia", "LC", "LCA", "662"),
 //        SAINT_VINCENT_AND_THE_GRENADINES("Saint Vincent and the Grenadines", "VC", "VCT", "670"),
-    //        SAMOA("Samoa", "WS", "WSM", "882"),
+//        SAMOA("Samoa", "WS", "WSM", "882"),
 //        SAN_MARINO("San Marino", "SM", "SMR", "674"),
 //        SAO_TOME_AND_PRINCIPE("Sao Tome and Principe", "ST", "STP", "678"),
 //        SAUDI_ARABIA("Saudi Arabia", "SA", "SAU", "682"),
@@ -233,7 +233,7 @@ public enum Countries {
 //        TURKMENISTAN("Turkmenistan", "TM", "TKM", "795"),
 //        TURKS_AND_CAICOS_ISLANDS("Turks and Caicos Islands", "TC", "TCA", "796"),
 //        TUVALU("Tuvalu", "TV", "TUV", "798"),
-    //        UGANDA("Uganda", "UG", "UGA", "800"),
+//        UGANDA("Uganda", "UG", "UGA", "800"),
 //        UKRAINE("Ukraine", "UA", "UKR", "804"),
 //        UNITED_ARAB_EMIRATES("United Arab Emirates", "AE", "ARE", "784"),
 //        UNITED_KINGDOM("United Kingdome", "GB", "GBR", "826"),
@@ -274,8 +274,7 @@ public enum Countries {
      *
      * @return {@link String}
      */
-    public String getCountryName()
-    {
+    public String getCountryName() {
         return countryName;
     }
 
@@ -284,8 +283,7 @@ public enum Countries {
      *
      * @return {@link String}
      */
-    public String getCountryCodeA2()
-    {
+    public String getCountryCodeA2() {
         return A2Code;
     }
 
@@ -294,8 +292,7 @@ public enum Countries {
      *
      * @return {@link String}
      */
-    public String getCountryCodeA3()
-    {
+    public String getCountryCodeA3() {
         return A3Code;
     }
 
@@ -304,8 +301,7 @@ public enum Countries {
      *
      * @return {@link String}
      */
-    public String getCountryCodeNM()
-    {
+    public String getCountryCodeNM() {
         return NMCode;
     }
 
@@ -314,7 +310,7 @@ public enum Countries {
      *
      * @return {@link String}
      */
-    public String getCountryCodeISD(){
+    public String getCountryCodeISD() {
         return ISDCode;
     }
 

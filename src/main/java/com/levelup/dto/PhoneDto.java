@@ -16,18 +16,18 @@ import com.levelup.model.Address;
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 public class PhoneDto {
 
-    private String namber;
+    private String number;
     private Address address;
 
     public PhoneDto() {
     }
 
-    public String getNamber() {
-        return namber;
+    public String getNumber() {
+        return number;
     }
 
-    public void setNamber(String namber) {
-        this.namber = namber;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public Address getAddress() {
