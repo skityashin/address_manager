@@ -1,10 +1,12 @@
 package com.levelup.repository.impl;
 
+import com.levelup.model.Address;
 import com.levelup.model.Phone;
 import com.levelup.repository.PhoneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.CollectionUtils;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -36,6 +38,25 @@ public class PhoneRepositoryImpl implements PhoneRepository {
     @Override
     public Phone findById(long id_phone) {
         return hibernateTemplate.load(Phone.class, id_phone);
+    }
+
+    @Override
+    public Phone findByNamber(String namber) {
+        List<Phone> phones  = (List<Phone>) hibernateTemplate.find("select p FROM Phone p WHERE p.namber = ?", namber);
+        if (!CollectionUtils.isEmpty(phones)) {
+            return phones.get(0);
+        }
+        return null;
+    }
+
+    @Override
+    public  List<Phone> findByNamberPartial(String namber) {
+        String query = "from Phone p where p.namber like :namber";
+        List<Phone> phones = (List<Phone>) hibernateTemplate.findByNamedParam(query, "namber", "%" + namber + "%");
+        for (Phone p: phones){
+            hibernateTemplate.initialize(p.getAddress());
+        }
+        return phones;
     }
 
     @Override

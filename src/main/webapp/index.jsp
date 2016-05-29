@@ -18,18 +18,18 @@
 
 
     <form action="/address/deletePhone" method="post" id="del-phone">
-        <p style="text-align: center"><input style="width: 150px" placeholder="Phone" name="phone">
+        <p style="text-align: center"><input style="width: 150px" placeholder="Phone" name="namber">
             <button class='great_btn'>Delete Phone</button> </p>
     </form>
 
 
-<form>
+<form action="/address/searchAddress" method="get" id="search-address">
     <p style="text-align: center"><input style="width: 150px" placeholder="Address" name="content">
    <button class='great_btn'>Search Address</button></p>
 </form>
 
-<form>
-    <p style="text-align: center"><input style="width: 150px" placeholder="Phone" name="phone">
+<form action="/address/searchPhone" method="get" id="search-phone">
+    <p style="text-align: center"><input style="width: 150px" placeholder="Phone" name="namber">
         <button class='great_btn'>Search Phone</button></p>
 </form>
 

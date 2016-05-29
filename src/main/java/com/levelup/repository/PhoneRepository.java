@@ -17,6 +17,8 @@ public interface PhoneRepository {
     void createPhone (Phone phone);
     //    void updateAddress (Address address);
     Phone findById (long id_phone);
+    Phone findByNamber (String namber);
+    List<Phone> findByNamberPartial (String namber);
     List<Phone> getAllPhone ();
     void deleteById (long id_phone);
     boolean isPhoneExist(long id_phone);

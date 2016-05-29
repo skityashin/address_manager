@@ -113,39 +113,32 @@ public class AddressController {
 
 
 
-//        @RequestMapping(value = "//deletePhone", method = RequestMethod.POST)
-//        public String deletePhone(@ModelAttribute PhoneDto phoneDto, Model model) {
-//            Phone phone = null;
-//            try {
-//                phone = phoneService.
-//
-//                addressService.deleteById(address.getId_address());
-//            } catch (Exception e) {
-//                model.addAttribute("content", "\"" + addressDto.getContent() + "\"" + " not found!!!");
-//                return "deleted";
-//            }
-//            model.addAttribute("content", "\"" + address.getContent() + "\"" + " is deleted!!!");
-//            return "deleted";
-//        }
+        @RequestMapping(value = "/deletePhone", method = RequestMethod.POST)
+        public String deletePhone(@ModelAttribute PhoneDto phoneDto, Model model) {
+            Phone phone = null;
+            try {
+                phone = phoneService.findByNamber(phoneDto.getNamber());
+                phoneService.deleteById(phone.getId_phone());
+            } catch (Exception e) {
+                model.addAttribute("content", "\"" + phoneDto.getNamber() + "\"" +  " <font color=\"#FF0000\">not found!!!</font>");
+                return "deleted";
+            }
+            model.addAttribute("content", "\"" + phoneDto.getNamber() + "\"" + "  <font color=\"#01DF01\">is deleted!!!</font>");
+            return "deleted";
+        }
 
-//        @RequestMapping(value = "/find/{id}", method = RequestMethod.GET)
-//        @ResponseBody
-//        public ResponseEntity findUser(@PathVariable long id) {
-//            User user = userService.findById(id);
-//            if (user == null) {
-//                return new ResponseEntity(HttpStatus.NO_CONTENT);
-//            }
-//            return new ResponseEntity(user, HttpStatus.OK);
-//        }
-//
-//
-//        @RequestMapping(value = "/getAll", method = RequestMethod.GET)
-//        public ResponseEntity getAllUsers() {
-//            List<User> users = userService.getAllUsers();
-//            if (CollectionUtils.isEmpty(users)) {
-//                return new ResponseEntity(HttpStatus.NO_CONTENT);
-//            }
-//            return new ResponseEntity(users, HttpStatus.OK);
-//        }
+        @RequestMapping(value = "/searchAddress", method = RequestMethod.GET)
+        public String findAddress(@ModelAttribute AddressDto addressDto, Model model) {
+            List<Address> address = addressService.findByContentPartial(addressDto.getContent());
+            model.addAttribute("address", address);
+            return "addressView";
+        }
+
+        @RequestMapping(value = "/searchPhone", method = RequestMethod.GET)
+        public String findPhone(@ModelAttribute PhoneDto phoneDto, Model model) {
+            List<Phone> phones = phoneService.findByNamberPartial(phoneDto.getNamber());
+            model.addAttribute("phones", phones);
+            return "phonesView";
+        }
 
 }

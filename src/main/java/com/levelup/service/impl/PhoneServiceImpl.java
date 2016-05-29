@@ -36,6 +36,16 @@ public class PhoneServiceImpl implements PhoneService{
     }
 
     @Override
+    public Phone findByNamber(String namber) {
+        return phoneRepository.findByNamber(namber);
+    }
+
+    @Override
+    public List<Phone> findByNamberPartial(String namber) {
+        return phoneRepository.findByNamberPartial(namber);
+    }
+
+    @Override
     public List<Phone> getAllPhone() {
         return phoneRepository.getAllPhone();
     }

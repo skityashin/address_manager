@@ -2,6 +2,7 @@ package com.levelup.repository.impl;
 
 import com.levelup.model.Address;
 import com.levelup.repository.AddressRepository;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
@@ -52,6 +53,13 @@ public class AddressRepositoryImpl implements AddressRepository{
             return addresses.get(0);
         }
         return null;
+    }
+
+    @Override
+    public List<Address> findByContentPartial(String content) {
+        String query = "from Address a where a.content like :content";
+        List<Address> addresses = (List<Address>) hibernateTemplate.findByNamedParam(query, "content", "%" + content + "%");
+        return addresses;
     }
 
     @Override

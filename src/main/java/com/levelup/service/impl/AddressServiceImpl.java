@@ -43,6 +43,11 @@ public class AddressServiceImpl implements AddressService{
     }
 
     @Override
+    public List<Address> findByContentPartial(String content) {
+        return addressRepository.findByContentPartial(content);
+    }
+
+    @Override
     public List<Address> getAllAddress() {
         return addressRepository.getAllAddress();
     }
