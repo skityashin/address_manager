@@ -25,16 +25,25 @@ public class AddressRepositoryImpl implements AddressRepository {
     @Autowired
     private HibernateTemplate hibernateTemplate;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void createAddress(Address address) {
         hibernateTemplate.saveOrUpdate(address);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Address findById(long id_address) {
         return hibernateTemplate.get(Address.class, id_address);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Address findByContent(String content) {
         List<Address> addresses = (List<Address>) hibernateTemplate.find("select a FROM Address a WHERE a.content = ?", content);
@@ -44,6 +53,9 @@ public class AddressRepositoryImpl implements AddressRepository {
         return null;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Address> findByContentPartial(String content) {
         String query = "from Address a where a.content like :content";
@@ -51,16 +63,25 @@ public class AddressRepositoryImpl implements AddressRepository {
         return addresses;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Address> getAllAddress() {
         return (List<Address>) hibernateTemplate.find("select * FROM Address");
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void deleteById(long id_address) {
         hibernateTemplate.delete(findById(id_address));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isAddressExist(long id_address) {
         return hibernateTemplate.contains(id_address);

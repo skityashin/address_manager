@@ -22,6 +22,9 @@ public class PhoneServiceImpl implements PhoneService {
     @Autowired
     private PhoneRepository phoneRepository;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void createPhone(Phone phone) {
         if (phone == null) {
@@ -30,31 +33,49 @@ public class PhoneServiceImpl implements PhoneService {
         phoneRepository.createPhone(phone);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Phone findById(long id_phone) {
         return phoneRepository.findById(id_phone);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Phone findByNumber(String number) {
         return phoneRepository.findByNumber(number);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Phone> findByNumberPartial(String number) {
         return phoneRepository.findByNumberPartial(number);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Phone> getAllPhone() {
         return phoneRepository.getAllPhone();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void deleteById(long id_phone) {
         phoneRepository.deleteById(id_phone);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isPhoneExist(long id_phone) {
         return phoneRepository.isPhoneExist(id_phone);

@@ -25,6 +25,9 @@ public class PhoneRepositoryImpl implements PhoneRepository {
     @Autowired
     private HibernateTemplate hibernateTemplate;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void createPhone(Phone phone) {
         if (phone == null) {
@@ -33,11 +36,17 @@ public class PhoneRepositoryImpl implements PhoneRepository {
         hibernateTemplate.saveOrUpdate(phone);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Phone findById(long id_phone) {
         return hibernateTemplate.load(Phone.class, id_phone);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Phone findByNumber(String number) {
         List<Phone> phones = (List<Phone>) hibernateTemplate.find("select p FROM Phone p WHERE p.number = ?", number);
@@ -47,6 +56,9 @@ public class PhoneRepositoryImpl implements PhoneRepository {
         return null;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Phone> findByNumberPartial(String number) {
         String query = "from Phone p where p.number like :number";
@@ -57,16 +69,25 @@ public class PhoneRepositoryImpl implements PhoneRepository {
         return phones;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Phone> getAllPhone() {
         return (List<Phone>) hibernateTemplate.find("FROM Phone");
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void deleteById(long id_phone) {
         hibernateTemplate.delete(findById(id_phone));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isPhoneExist(long id_phone) {
         return hibernateTemplate.contains(id_phone);

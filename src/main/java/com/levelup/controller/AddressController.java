@@ -38,7 +38,7 @@ public class AddressController {
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String showMainPage() {
-        return "inex";
+        return "index";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/create")

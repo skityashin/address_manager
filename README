@@ -1,0 +1,17 @@
+This application - an online shop implemented functionality for adding a new product, basket, adding a user.
+
+Used technologies:
+* Spring
+* Spring-boot
+* Hibernate
+* MySQL
+* JSP
+* Apache tiles
+* Mockito
+
+
+TO DO:
+* authorization and user authentication
+* payments
+* site search
+* category
