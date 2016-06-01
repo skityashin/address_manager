@@ -46,6 +46,15 @@ public class AddressController {
         return "create";
     }
 
+    /**
+     * Method that create and add an object to the database
+     * and return response with error message if something wrong. If everything ok -
+     * response with success message
+     *
+     * @param addressDto
+     * @param model
+     * @return results page
+     */
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String createAddress(@ModelAttribute AddressDto addressDto, Model model) {
         Address address = addressService.findByContent(addressDto.getContent());
@@ -95,6 +104,16 @@ public class AddressController {
         return "view";
     }
 
+    /**
+     * Method that delete an object by id from the database
+     * and return response with error message if something wrong. If everything ok -
+     * response with success message
+     *
+     * @param addressDto
+     * @param model
+     * @return result page
+     * *
+     */
     @RequestMapping(value = "/deleteAddress", method = RequestMethod.POST)
     public String deleteAddress(@ModelAttribute AddressDto addressDto, Model model) {
         try {
@@ -108,7 +127,16 @@ public class AddressController {
         return "deleted";
     }
 
-
+    /**
+     * Method that delete an object by id from the database
+     * and return response with error message if something wrong. If everything ok -
+     * response with success message
+     *
+     * @param phoneDto
+     * @param model
+     * @return result page
+     * *
+     */
     @RequestMapping(value = "/deletePhone", method = RequestMethod.POST)
     public String deletePhone(@ModelAttribute PhoneDto phoneDto, Model model) {
         try {
@@ -122,6 +150,16 @@ public class AddressController {
         return "deleted";
     }
 
+    /**
+     * Method that receives an object by id from the database
+     * and return response with error message if something wrong. If everything ok -
+     * response with success message
+     *
+     * @param addressDto
+     * @param model
+     * @return result page
+     * *
+     */
     @RequestMapping(value = "/searchAddress", method = RequestMethod.GET)
     public String findAddress(@ModelAttribute AddressDto addressDto, Model model) {
         List<Address> address = addressService.findByContentPartial(addressDto.getContent());
@@ -129,6 +167,16 @@ public class AddressController {
         return "addressView";
     }
 
+    /**
+     * Method that receives an object by id from the database
+     * and return response with error message if something wrong. If everything ok -
+     * response with success message
+     *
+     * @param phoneDto
+     * @param model
+     * @return result page
+     * *
+     */
     @RequestMapping(value = "/searchPhone", method = RequestMethod.GET)
     public String findPhone(@ModelAttribute PhoneDto phoneDto, Model model) {
         List<Phone> phones = phoneService.findByNumberPartial(phoneDto.getNumber());
