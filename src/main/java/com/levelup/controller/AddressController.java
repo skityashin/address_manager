@@ -35,12 +35,6 @@ public class AddressController {
     @Autowired
     private PhoneService phoneService;
 
-
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String showMainPage() {
-        return "index";
-    }
-
     @RequestMapping(method = RequestMethod.GET, value = "/create")
     public String showForm() {
         return "create";
