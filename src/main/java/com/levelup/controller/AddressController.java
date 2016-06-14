@@ -6,6 +6,7 @@ import com.levelup.model.Address;
 import com.levelup.model.Phone;
 import com.levelup.service.AddressService;
 import com.levelup.service.PhoneService;
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,7 +31,7 @@ import java.util.List;
 @RequestMapping("/address")
 public class AddressController {
 
-    private static final Logger LOG = Logger.getLogger(AddressController.class);
+    private static final org.apache.log4j.Logger LOG = Logger.getLogger(AddressController.class);
 
     @Autowired
     private AddressService addressService;
@@ -40,6 +41,7 @@ public class AddressController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/create")
     public String showForm() {
+        BasicConfigurator.configure();
         LOG.debug("create");
         return "create";
     }
@@ -55,6 +57,7 @@ public class AddressController {
      */
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String createAddress(@ModelAttribute AddressDto addressDto, Model model) {
+
         LOG.info("HIIIII");
         Address address = addressService.findByContent(addressDto.getContent());
 
