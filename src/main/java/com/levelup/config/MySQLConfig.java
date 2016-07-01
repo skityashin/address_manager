@@ -55,7 +55,6 @@ public class MySQLConfig {
     public LocalSessionFactoryBean sessionFactory() {
         final LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-//        sessionFactory.setMappingResources(new String[] {"com.levelup"});
         sessionFactory.setPackagesToScan(new String[]{"com.levelup.model"});
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
@@ -74,8 +73,8 @@ public class MySQLConfig {
 //        dataSource.setPassword(jdbcPass);
         dataSource.setUrl("jdbc:mysql://localhost:3306/address_manager");
         dataSource.setUsername("root");
-        dataSource.setPassword("");
-//        dataSource.setPassword("skityashin");
+//        dataSource.setPassword("");
+        dataSource.setPassword("***");
         Properties properties = new Properties();
         properties.put("minPoolSize", "1");
         properties.put("maxPoolSize", "100");
