@@ -1,7 +1,6 @@
 package com.levelup.repository;
 
 import com.levelup.model.Address;
-
 import java.util.List;
 
 /**

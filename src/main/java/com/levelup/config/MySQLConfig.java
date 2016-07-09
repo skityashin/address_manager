@@ -108,7 +108,6 @@ public class MySQLConfig {
         }
     }
 
-
 //    @Bean
 //    @Autowired
 //    public HibernateTransactionManager transactionManager(SessionFactory s) {
@@ -150,8 +149,6 @@ public class MySQLConfig {
 //        hibernateProperties.setProperty("hibernate.cache.use_second_level_cache", "true");
 //        hibernateProperties.setProperty("hibernate.cache.provider_class", "com.hazelcast.cache.HazelcastCachingProvider");
 //        hibernateProperties.setProperty("hibernate.cache.region.factory_class", "com.hazelcast.hibernate.HazelcastCacheRegionFactory");
-
         return hibernateProperties;
     }
-
 }

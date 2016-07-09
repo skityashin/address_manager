@@ -15,7 +15,6 @@
 
     <!-- Pages -->
 
-
     <definition name="create" extends="layout.basic">
         <put-attribute name="body" value="/WEB-INF/pages/create.jsp"/>
     </definition>

@@ -11,7 +11,6 @@
 <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
 <script language="javascript" type="text/javascript" src="/resources/js/view.js"></script>
 
-
 <div>
     <h3 style="text-align: center"> ${content}</h3>
     <p style="text-align: center">
